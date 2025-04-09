@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
 
-    <el-table v-loading="loading" :data="photosList" @selection-change="handleSelectionChange">
+    <el-table :row-class-name="() => 'no-hover-row'" v-loading="loading" :data="photosList" @selection-change="handleSelectionChange">
       <el-table-column label="车牌号" align="center" prop="vehicle" />
       <el-table-column label="用户" align="center" prop="username" />
       <el-table-column label="照片" align="center" prop="photoPath">
@@ -216,3 +216,11 @@ function handleExport() {
 
 getList();
 </script>
+
+<style scoped>
+/* 取消 Element Plus 默认的 hover 高亮 */
+.no-hover-row:hover {
+  background-color: transparent !important;
+}
+</style>
+
